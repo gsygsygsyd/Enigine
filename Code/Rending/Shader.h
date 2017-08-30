@@ -9,10 +9,37 @@
 #include <GLM/glm.hpp>
 #include "Util/Gloabl.h"
 
-bool GGetShaderType(const std::string& file, GLuint& shadertype)
+//着色器类型
+enum EShaderType
 {
+	VERTEX = GL_VERTEX_SHADER,
+	GEOMETRY = GL_GEOMETRY_SHADER,
+	FRAGEMENT = GL_FRAGMENT_SHADER,
+	TESS_CONTROL = GL_TESS_CONTROL_SHADER,
+	TESS_EVALUATION = GL_TESS_EVALUATION_SHADER,
+	COMPUTE = GL_COMPUTE_SHADER
+};
 
+
+inline bool GGetShaderType(const std::string& file, GLuint& shadertype)
+{
+	static std::map<std::string, GLuint> Mapp ={
+		{"ver", EShaderType::VERTEX},
+		{"Ge", EShaderType::GEOMETRY},
+		{"frag", EShaderType::FRAGEMENT}
+	};
+	auto key = file.substr(file.find_last_of("."));
+
+	auto itor = Mapp.find(key);
+	if (itor != Mapp.end())
+	{
+		shadertype = itor->second;
+		return true;
+	}
+
+	return false;
 }
+
 
 enum 
 {
@@ -134,17 +161,6 @@ struct FShader
 		return NO_ERROR;
 	}
 
-	//着色器类型
-	enum EShaderType
-	{
-		VERTEX = GL_VERTEX_SHADER,
-		GEOMETRY = GL_GEOMETRY_SHADER,
-		FRAGEMENT = GL_FRAGMENT_SHADER,
-		TESS_CONTROL = GL_TESS_CONTROL_SHADER,
-		TESS_EVALUATION = GL_TESS_EVALUATION_SHADER,
-		COMPUTE = GL_COMPUTE_SHADER
-	};
-
 	GLuint ShaderID;
 	GLuint ShaderType;
 	std::string CompileResult;
@@ -186,7 +202,7 @@ public:
 
 	int AddShaderSource(const std::string& source, int shadertype)
 	{
-		FShaderPtr shader = std::make_shared<FShader>(source, shadertype);
+		FShaderPtr shader = std::make_shared<FShader>(source.data(), shadertype);
 		return AddShader(shader);
 	}
 
