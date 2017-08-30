@@ -117,15 +117,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Code\loadModel.cpp" />
+    <ClCompile Include="..\..\Code\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Code\Framework\Actor.h" />
     <ClInclude Include="..\..\Code\Framework\Camera.h" />
     <ClInclude Include="..\..\Code\Framework\Component.h" />
     <ClInclude Include="..\..\Code\Framework\Controller.h" />
+    <ClInclude Include="..\..\Code\Framework\InputComponent.h" />
     <ClInclude Include="..\..\Code\Framework\Level.h" />
     <ClInclude Include="..\..\Code\Framework\Object.h" />
     <ClInclude Include="..\..\Code\Framework\Texture.h" />
+    <ClInclude Include="..\..\Code\Rending\Framebuffer.h" />
+    <ClInclude Include="..\..\Code\Rending\GBuffer.h" />
     <ClInclude Include="..\..\Code\Rending\Material.h" />
     <ClInclude Include="..\..\Code\Rending\Mesh.h" />
     <ClInclude Include="..\..\Code\Rending\Shader.h" />

@@ -27,6 +27,9 @@
     <ClCompile Include="..\..\Code\loadModel.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Code\Main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Code\Framework\Component.h">
@@ -61,6 +64,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Code\Util\Gloabl.h">
       <Filter>源文件\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Framework\InputComponent.h">
+      <Filter>源文件\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Rending\GBuffer.h">
+      <Filter>源文件\Rending</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Rending\Framebuffer.h">
+      <Filter>源文件\Rending</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
